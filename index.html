@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Trend Studio | Timeless Fashion, Outfit Ideas & Style Guides</title>
+  <meta name="description" content="Discover timeless fashion inspiration, outfit ideas, capsule wardrobe guides, luxury style tips, and seasonal trends. The Trend Studio helps women build elegant wardrobes with confidence."> 
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="The Trend Studio">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://thetrendstudio.com/">
+  <meta name="keywords" content="fashion blog, outfit ideas, luxury fashion, styling tips, capsule wardrobe, old money style, women's fashion, seasonal trends">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Trend Studio — Journal for the Considered Wardrobe">
+  <meta property="og:description" content="A luxury editorial journal and design publication covering architecture, capsule wardrobe, high fashion, timeless craft, and considered living.">
+  <meta property="og:image" content="https://thetrendstudio.com/images/homepage-og.jpg">
+  <meta property="og:url" content="https://thetrendstudio.com/">
+  <meta property="og:site_name" content="The Trend Studio">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Trend Studio">
+  <meta name="twitter:description" content="A journal for the considered wardrobe and timeless design.">
+  <meta name="twitter:image" content="https://thetrendstudio.com/images/homepage-og.jpg">
+  <meta name="twitter:site" content="@trendstudiohub">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "The Trend Studio",
+        "url": "https://thetrendstudio.com",
+        "description": "The Trend Studio is a fashion editorial website featuring timeless fashion inspiration, outfit ideas, capsule wardrobe guides, and styling advice.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://thetrendstudio.com/#organization"
+        }
+      },
+     {
+        "@type": "Organization",
+        "@id": "https://thetrendstudio.com/#organization",
+        "name": "The Trend Studio",
+        "url": "https://thetrendstudio.com",
+        "description": "Fashion editorial website publishing timeless style inspiration and wardrobe guides."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Top Reading Progress Bar (Active during article reading) -->
+  <div id="readingProgressBar" class="reading-progress-bar" aria-hidden="true"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="container announcement-content">
+      <span class="announcement-badge">NEW</span>
+
+      <p class="announcement-text">Discover the latest outfit inspiration, styling tips, and timeless fashion trends updated every week.</p>
+
+      <a href="#newsletterSection" class="announcement-link" onclick="app.scrollToSection('newsletterSection')">Explore Latest Articles &rarr;</a>
+      <button class="announcement-close" id="closeAnnouncement" aria-label="Close Announcement">&times;</button>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <div class="header-left">
+        <!-- Brand Logo -->
+        <a href="/" class="brand-logo" onclick="app.navigateTo('home'); return false;">
+          <span class="brand-name">The Trend Studio</span>
+        </a>
+
+        <span class="header-v-divider"></span>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul class="nav-list">
+            <a href="/" class="nav-link" onclick="app.navigateTo('home'); return false;">Home</a>
+            <a href="/journal" class="nav-link" onclick="app.navigateTo('stories'); return false;"> Journal</a>
+            <a href="/about" class="nav-link" onclick="app.navigateTo('about'); return false;">About</a>
+            <a href="/contact" class="nav-link" onclick="app.navigateTo('contact'); return false;"> Contact</a>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Search Button -->
+        <button class="icon-btn" id="openSearchBtn" aria-label="Search articles" title="Search Articles (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+
+        <!-- Bookmarks Button -->
+        <button class="icon-btn bookmark-btn" id="openBookmarksBtn" aria-label="Saved Articles" title="Saved Bookmarks">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <span class="badge-count" id="bookmarkBadge">0</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Toggle Theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Contact Button -->
+        <a href="/contact" class="btn-outline-pill nav-contact-btn"
+          onclick="app.navigateTo('contact'); return false;">
+          CONTACT
+        </a>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <a href="/" class="brand-logo" onclick="app.navigateTo('home'); app.closeMobileMenu(); return false;">
+          <span class="brand-name">The Trend Studio</span> 
+        </a>
+        <button class="close-drawer-btn" id="closeMobileNavBtn" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <a href="/" onclick="app.navigateTo('home'); return false;"> Home </a>
+
+        <a href="/journal" onclick="app.navigateTo('stories'); return false;"> Journal </a>
+
+        <a href="/about" onclick="app.navigateTo('about'); return false;"> About </a>
+
+        <a href="/contact" onclick="app.navigateTo('contact'); return false;"> Contact </a>
+        <!-- <li><a href="#" onclick="app.filterByCategory('Outfits'); app.closeMobileMenu(); return false;">Outfits</a></li>
+        <li><a href="#" onclick="app.filterByCategory('Accessories'); app.closeMobileMenu(); return false;">Accessories</a></li>
+        <li><a href="#" onclick="app.filterByCategory('Seasonal'); app.closeMobileMenu(); return false;">Seasonal</a></li>
+  -->
+      </ul>
+      <div class="mobile-nav-footer">
+        <p>Subscribe to our weekly editorial digest.</p>
+        <button class="btn-primary w-full" onclick="app.scrollToSection('newsletterSection'); app.closeMobileMenu();">Subscribe to Journal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="mainContent" class="main-content">
+
+    <!-- PAGE VIEW: HOME -->
+    <div id="viewHome" class="page-view active">
+
+      <!-- Hero Section Inspired by Editorial Screenshot -->
+      <section class="hero-editorial">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-text-content">
+              <div class="hero-meta-bar">
+                <span class="hero-meta-tag hero-brand-tag">CURATED STYLE</span>
+                <span class="hero-meta-divider"></span>
+                <span class="hero-meta-tag">LUXURY INSPIRED</span>
+                <span class="hero-meta-divider"></span>
+                <span class="hero-meta-tag">TIMELESS WARDROBE</span>
+              </div>
+
+              <h1 class="hero-title">
+                Timeless Fashion.<br>
+                <em class="serif-italic">Everyday Confidence.</em>
+              </h1>
+
+              <p class="hero-subtitle">
+                Discover elegant outfit inspiration, luxury fashion trends, styling guides, and curated wardrobe ideas to help you build a timeless wardrobe with confidence.
+              </p>
+
+             <div class="hero-cta-group">
+                <button class="btn-primary" onclick="app.scrollToSection('featuredSection')">Explore Articles</button>
+                <button class="btn-secondary" onclick="app.navigateTo('stories')">Start Styling</button>
+              </div>
+            </div>
+
+            <div class="hero-banner-container">
+              <div class="hero-banner-card">
+                <img src="/images/hero-banner.jpg" alt="Luxury fashion editorial banner for The Trend Studio featuring timeless outfit inspiration and capsule wardrobe styling" class="hero-banner-img" />
+                <div class="hero-banner-badge">
+                  <span>THE TREND STUDIO &mdash; EDITORIAL</span>
+                  <p>Timeless Fashion. Everyday Confidence.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Main Editorial Article -->
+      <section class="featured-section" id="featuredSection">
+        <div class="container">
+          <div class="section-label-bar">
+            <span class="section-badge">FEATURED ESSAY</span>
+            <span class="section-line"></span>
+          </div>
+
+          <div id="featuredArticleContainer" class="featured-card-wrapper">
+            <!-- Rendered dynamically by script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Categories Grid -->
+      <section class="categories-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Explore Fashion</h2>
+            <p class="section-desc">Browse timeless outfit inspiration, luxury accessories, seasonal style guides, and curated fashion edits designed to elevate your everyday wardrobe.</p>
+          </div>
+
+          <div class="category-grid">
+            <div class="category-card" onclick="app.filterByCategory('Outfits')">
+              <div class="category-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="Timeless outfit inspiration for modern women" loading="lazy">
+              </div>
+              <div class="category-info">
+                <h3>Outfits</h3>
+                <p>Timeless outfit inspiration for every occasion.</p>
+                <span class="category-link">View Stories &rarr;</span>
+              </div>
+            </div>
+
+            <div class="category-card" onclick="app.filterByCategory('Accessories')">
+              <div class="category-img-wrapper">
+                <img src="/images/accessories.jpg" alt="Luxury fashion accessories including handbags, jewelry, and shoes" loading="lazy">
+              </div>
+              <div class="category-info">
+                <h3>Accessories</h3>
+                <p>Luxury bags, shoes, jewelry, and finishing touches.</p>
+                <span class="category-link">View Stories &rarr;</span>
+              </div>
+            </div>
+
+            <div class="category-card" onclick="app.filterByCategory('Seasonal')">
+              <div class="category-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="Seasonal fashion trends and timeless wardrobe inspiration" loading="lazy">
+              </div>
+              <div class="category-info">
+                <h3>Seasonal Trends</h3>
+                <p>Curated fashion trends for every season.</p>
+                <span class="category-link">View Stories &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filterable Latest Articles Section -->
+      <section class="latest-articles-section">
+        <div class="container">
+          <div class="articles-header-row">
+            <div>
+              <h2 class="section-title">Latest Journal Entries</h2>
+              <p class="section-desc">Thoughtfully written essays updated weekly by our editorial board.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+              <div class="filter-pills" id="homeCategoryPills">
+                <button class="filter-pill active" onclick="app.setHomeFilter('All', this)">All</button>
+                <button class="filter-pill" onclick="app.setHomeFilter('Outfits', this)">Outfits</button>
+                <button class="filter-pill" onclick="app.setHomeFilter('Accessories', this)">Accessories</button>
+                <button class="filter-pill" onclick="app.setHomeFilter('Seasonal', this)">Seasonal</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Articles Grid Container -->
+          <div id="homeArticlesGrid" class="articles-grid">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="text-center margin-top-xl">
+            <button class="btn-outline" onclick="app.navigateTo('stories')">Browse Full Archive &rarr;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Editor's Picks Spotlight Section -->
+      <section class="editors-spotlight-section">
+        <div class="container">
+          <div class="spotlight-box">
+
+            <div class="spotlight-content">
+
+              <span class="spotlight-badge">
+                EDITOR'S PICK
+              </span>
+
+              <h2 class="spotlight-title">
+                Build a Timeless Wardrobe That Never Goes Out of Style
+              </h2>
+
+              <p class="spotlight-excerpt">
+                Discover the essential wardrobe pieces every woman should own—from
+                classic blazers and tailored trousers to versatile dresses and luxury
+                accessories that remain stylish season after season.
+              </p>
+
+              <div class="spotlight-author">
+                <img
+                  src="/images/pinterest-profile-photo.jpg"
+                  alt="The Trend Studio editorial team"
+                  class="author-avatar"
+                />
+
+                <div>
+                  <span class="author-name">
+                    The Trend Studio
+                  </span>
+
+                  <span class="author-role">
+                    Fashion Editorial Team
+                  </span>
+                </div>
+              </div>
+
+              <button
+                class="btn-primary"
+                onclick="app.openArticle('article-1')">
+                Explore Guide
+              </button>
+
+            </div>
+
+            <div class="spotlight-image">
+              <img
+                src="/images/the-trend-studio-poster.jpg"
+                alt="Classic wardrobe essentials for timeless fashion styling"
+                loading="lazy">
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter Section -->
+      <section class="newsletter-section" id="newsletterSection">
+        <div class="container">
+          <div class="newsletter-card">
+            <div class="newsletter-content">
+              <span class="newsletter-tag">JOIN THE TREND STUDIO</span>
+              <h2 class="newsletter-title">Get Weekly Fashion Inspiration Delivered to Your Inbox</h2>
+              <p class="newsletter-desc">
+              Join our community and receive timeless outfit inspiration, seasonal fashion trends, capsule wardrobe guides, styling tips, and exclusive fashion ideas—all delivered straight to your inbox.
+              </p>              
+              <form id="newsletterForm" class="newsletter-form" onsubmit="app.handleNewsletterSubmit(event)">
+                <div class="input-group">
+                  <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email address">
+                  <button type="submit" class="btn-primary">Subscribe Free</button>
+                </div>
+                <p class="newsletter-disclaimer">No spam, ever. Unsubscribe anytime with a single click.</p>
+              </form>
+
+              <div id="newsletterSuccess" class="newsletter-success hidden">
+                <div class="success-icon">✓</div>
+               <h3>Welcome to The Trend Studio!</h3>
+                <p>You're now part of our fashion community. Watch your inbox for timeless outfit inspiration, styling tips, and exclusive fashion updates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAGE VIEW: ALL STORIES ARCHIVE -->
+    <div id="viewStories" class="page-view hidden">
+      <div class="container padding-top-large">
+        <div class="archive-header">
+          <h1 class="page-title">Editorial Archive</h1>
+          <p class="page-subtitle">Search, filter, and explore all published essays.</p>
+          
+          <!-- Search & Filter Controls -->
+          <div class="archive-controls">
+            <div class="search-input-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="archiveSearchInput" placeholder="Search title, author, topic..." oninput="app.handleArchiveSearch()">
+            </div>
+
+            <div class="archive-select-group">
+              <select id="archiveCategorySelect" onchange="app.handleArchiveSearch()">
+                <option value="All">All Categories</option>
+                <option value="Outfits">Outfits</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Seasonal">Seasonal</option>
+              </select>
+
+              <select id="archiveSortSelect" onchange="app.handleArchiveSearch()">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="archiveArticlesGrid" class="articles-grid">
+          <!-- Dynamically Populated -->
+        </div>
+
+        <div id="noArchiveResults" class="no-results hidden">
+          <p>No essays match your current search criteria.</p>
+          <button class="btn-outline" onclick="app.resetArchiveFilters()">Reset All Filters</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE VIEW: SINGLE ARTICLE READER VIEW -->
+    <div id="viewArticle" class="page-view hidden">
+      <div class="container article-container">
+        
+        <!-- Back Button & Breadcrumbs -->
+        <div class="article-top-nav">
+          <button class="back-btn" onclick="app.goBackFromArticle()">
+            &larr; Back to Journal
+          </button>
+          <div class="article-breadcrumbs">
+            <span id="articleBreadcrumbCategory">Category</span>
+            <span>/</span>
+            <span id="articleBreadcrumbTitle">Title</span>
+          </div>
+        </div>
+
+        <!-- Article Header -->
+        <header class="article-header">
+          <div class="article-meta-top">
+            <span id="articleCategoryBadge" class="category-badge">Category</span>
+            <span id="articleReadingTime" class="read-time-pill">5 min read</span>
+            <span id="articleDate" class="date-pill">Dec 12, 2025</span>
+          </div>
+
+          <h1 id="articleTitle" class="article-main-title">Article Title Here</h1>
+          
+          <p id="articleSummary" class="article-lead-summary">
+            Article lead summary text paragraph setting up the essay.
+          </p>
+
+          <!-- Author Info & Share Bar -->
+          <div class="article-author-bar">
+            <div class="author-details">
+              <img id="articleAuthorAvatar" src="" alt="Author Avatar" class="author-avatar-lg">
+              <div>
+                <span id="articleAuthorName" class="author-name-bold">Author Name</span>
+                <span id="articleAuthorRole" class="author-role-sub">Role / Title</span>
+              </div>
+            </div>
+
+            <div class="article-share-actions">
+              <button class="action-btn bookmark-toggle-btn" id="articleBookmarkBtn" onclick="app.toggleBookmarkCurrentArticle()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                <span id="articleBookmarkText">Save Article</span>
+              </button>
+
+              <button class="action-btn" onclick="app.shareArticle()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Hero Article Image -->
+        <div class="article-cover-wrapper">
+          <img id="articleCoverImage" src="" alt="Article cover image" loading="eager">
+          <span id="articleImageCaption" class="image-caption">Photo curated by The Trend Studio</span>
+        </div>
+
+        <!-- Article Body Content -->
+        <article id="articleBody" class="article-body-content">
+          <!-- Dynamically populated paragraphs, blockquotes, subheadings -->
+        </article>
+
+        <!-- Article Footer / Tags / Author Bio -->
+        <footer class="article-footer-box">
+          <div class="article-tags-wrapper" id="articleTagsContainer">
+            <!-- Rendered tags -->
+          </div>
+
+          <div class="author-bio-card">
+            <img id="articleAuthorBioAvatar" src="" alt="Author" class="author-avatar-xl">
+            <div class="author-bio-text">
+              <h3 id="articleAuthorBioName">The Trend Studio</h3>
+              <p id="articleAuthorBioText">Sharing timeless fashion inspiration for modern women.</p>
+            </div>
+          </div>
+
+          <!-- Comments Section -->
+          <div class="comments-section" id="commentsSection">
+            <h3 class="comments-title">Join the Conversation (<span id="commentCount">0</span>)</h3>
+
+            <!-- Comment Form -->
+            <form id="commentForm" class="comment-form" onsubmit="app.handleCommentSubmit(event)">
+              <div class="form-row">
+                <input type="text" id="commentName" placeholder="Your Name" required>
+                <input type="email" id="commentEmail" placeholder="Your Email" required>
+              </div>
+              <textarea id="commentText" rows="4" placeholder="Share your thoughts, styling tips, or questions..." required></textarea>
+              <button type="submit" class="btn-primary">Post Comment</button>
+            </form>
+
+            <!-- Comments List -->
+            <div id="commentsList" class="comments-list">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+        </footer>
+
+        <!-- Related Stories -->
+        <section class="related-stories-section">
+          <h2 class="section-title text-center">Continue Reading</h2>
+          <div id="relatedArticlesGrid" class="articles-grid">
+            <!-- Dynamic related articles -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- PAGE VIEW: ABOUT PAGE -->
+    <div id="viewAbout" class="page-view hidden">
+      <div class="container padding-top-large">
+        <section class="about-hero">
+          <span class="section-badge">ABOUT THE TREND STUDIO</span>
+          <h1 class="page-title margin-top-sm">
+            Helping Women Build
+            <br>
+            <em class="serif-italic">Timeless Wardrobes.</em>
+          </h1>
+         <p class="about-intro">
+            The Trend Studio is a fashion and lifestyle blog dedicated to helping women build elegant, timeless wardrobes with confidence. From outfit inspiration and capsule wardrobes to seasonal fashion trends and styling guides, our mission is to make everyday style effortless, practical, and inspiring.
+          </p>
+        </section>
+
+        <section class="about-grid">
+          <div class="about-card">
+            <h3>01. Timeless Fashion</h3>
+            <p>We believe true style never goes out of fashion. Our goal is to help women build versatile wardrobes with timeless clothing, classic silhouettes, and quality pieces that can be worn season after season.</p>
+          </div>
+          
+          <div class="about-card">
+            <h3>02. Everyday Confidence</h3>
+            <p>Fashion should feel effortless and empowering. We create outfit ideas, styling tips, and wardrobe guides that help women feel confident every day, whether dressing for work, travel, or special occasions.</p>
+          </div>
+
+          <div class="about-card">
+            <h3>03. Thoughtful Style Guides</h3>
+            <p>Every article is designed to inspire smarter fashion choices through practical advice, seasonal trends, capsule wardrobe ideas, and carefully curated styling inspiration for modern women.</p>
+          </div>
+        </section>
+
+        <section class="editorial-board-section">
+          <h2 class="section-title text-center">Meet The Trend Studio</h2>
+         <div class="team-grid">
+            <div class="team-card">
+              <img src="/images/pinterest-logo.jpg"
+                  alt="The Trend Studio Team" class="author-avatar-xl">
+              <h4>The Trend Studio</h4>
+              <p class="team-role">
+                Timeless Fashion • Outfit Inspiration • Capsule Wardrobes
+              </p>
+            </div>
+            <div class="team-description">
+              <p>
+                The Trend Studio is a fashion blog dedicated to helping women build timeless wardrobes with confidence.
+              </p>
+
+              <p>
+               From outfit inspiration and capsule wardrobe ideas to seasonal fashion trends and styling tips, we share practical advice that makes everyday style effortless, elegant, and inspiring.
+              </p>
+
+              <p>
+               Our mission is simple: help you create a wardrobe you'll love today and for years to come.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- PAGE VIEW: CONTACT PAGE -->
+    <div id="viewContact" class="page-view hidden">
+      <div class="container padding-top-large">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <span class="section-badge">CONTACT THE TREND STUDIO</span>
+            <h1 class="page-title margin-top-sm">We'd Love to Hear From You</h1>
+            <p class="contact-lead">
+            Have a styling question, feedback about our articles, or a collaboration opportunity? We'd love to hear from you. Every message is carefully reviewed, and we'll respond as soon as possible.
+            </p>
+
+            <div class="contact-details-list">
+
+            <div class="detail-item">
+              <span class="detail-label">Email</span>
+              <a href="mailto:trendswithpayal@gmail.com">trendswithpayal@gmail.com</a>
+            </div>
+
+            <div class="detail-item">
+              <span class="detail-label">Pinterest</span>
+              <a href="https://in.pinterest.com/trendstudiohub/" target="_blank">@trendstudiohub</a>
+            </div>
+            </div>
+          </div>
+
+          <div class="contact-form-box">
+            <h3>Let's Connect</h3>
+            <p class="contact-form-intro">We typically respond within 1–2 business days.</p>
+            <form id="contactForm" onsubmit="app.handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input type="text" id="contactName" required placeholder="Name">
+              </div>
+            
+              <div class="form-group">
+                <label for="contactSubject">Subject</label>
+                <select id="contactSubject">
+                  <option value="General">General Question</option>
+                  <option value="Styling">Styling Advice</option>
+                  <option value="Collaboration">Brand Collaboration</option>
+                  <option value="Feedback">Website Feedback</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" rows="5" required placeholder="Tell us how we can help..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">Send Message </button>
+            </form>
+            <div id="contactSuccessMessage" class="newsletter-success hidden margin-top-md">
+              <div class="success-icon">✓</div>
+              <h3>Message Sent Successfully!</h3>
+              <p>Thank you for contacting The Trend Studio. We appreciate your message and will get back to you as soon as possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE VIEW: PRIVACY & TERMS PAGE -->
+    <div id="viewLegal" class="page-view hidden">
+      <div class="container padding-top-large max-w-narrow">
+
+      <section class="legal-hero">
+        <h1 class="page-title">Privacy Policy & Terms</h1>
+
+          <div class="legal-divider">
+            <span></span>
+            <div class="divider-icon">✦</div>
+            <span></span>
+          </div>
+
+          <p class="legal-date">
+            Last Updated • July 2026
+          </p>
+        </section>
+
+        <section class="legal-content">
+
+          <div class="legal-card">
+            <div class="legal-number">01</div>
+
+            <div class="legal-text">
+              <h2>Editorial Independence & Data Privacy</h2>
+
+              <p>
+                The Trend Studio values your privacy and trust. We never sell personal
+                information or use invasive third-party tracking. Any information you
+                voluntarily share with us is handled responsibly and used only to
+                improve your experience on our website.
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-card">
+            <div class="legal-number">02</div>
+
+            <div class="legal-text">
+              <h2>Newsletter Subscription</h2>
+
+              <p>
+                If you subscribe to our newsletter, your email address is securely
+                stored and used only to deliver fashion inspiration, styling guides,
+                and exclusive updates from The Trend Studio. You can unsubscribe at
+                any time using the link included in every email.
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-card">
+            <div class="legal-number">03</div>
+
+            <div class="legal-text">
+              <h2>Copyright & Intellectual Property</h2>
+
+              <p>
+                All original articles, graphics, branding, and website content
+                published on The Trend Studio are protected by copyright. Reproduction,
+                distribution, or commercial use without prior written permission is
+                strictly prohibited.
+              </p>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SEARCH MODAL OVERLAY -->
+  <div class="modal-overlay" id="searchModal" aria-hidden="true">
+    <div class="modal-content search-modal-content">
+      <div class="search-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="modalSearchInput" placeholder="Type to search articles, categories, authors..." autocomplete="off">
+        <button class="modal-close-btn" id="closeSearchModalBtn">&times;</button>
+      </div>
+
+      <div class="search-results-container" id="modalSearchResults">
+        <p class="search-placeholder-text">Start typing to search journal entries...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKMARKS DRAWER SLIDE-OUT -->
+  <div class="drawer-overlay" id="bookmarksDrawerOverlay">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3>Saved Essays (<span id="drawerBookmarkCount">0</span>)</h3>
+        <button class="close-drawer-btn" id="closeBookmarksBtn">&times;</button>
+      </div>
+
+      <div class="drawer-body" id="bookmarksDrawerList">
+        <!-- Rendered saved items -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION POPUP -->
+  <div id="toastNotification" class="toast-notification">
+    <span id="toastMessage">Action completed</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-logo-wrapper">
+            <span class="brand-name">The Trend Studio</span>
+          </div>
+         <p class="footer-tagline">Helping women build timeless wardrobes through outfit inspiration, seasonal fashion, and practical styling guides.</p>
+          <div class="footer-socials">
+            <a href="https://in.pinterest.com/trendstudiohub/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Pinterest
+            </a>
+
+            <a href="mailto:trendswithpayal@gmail.com">
+              Email
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Explore</h4>
+          <ul>
+            <a href="/" onclick="app.navigateTo('home'); return false;">Home</a>
+            <a href="/journal" onclick="app.navigateTo('stories'); return false;">Journal</a>
+            <li><a href="#" onclick="app.filterByCategory('Outfits'); return false;">Outfits</a></li>
+            <li><a href="#" onclick="app.filterByCategory('Accessories'); return false;">Accessories</a></li>
+            <li><a href="#" onclick="app.filterByCategory('Seasonal'); return false;">Seasonal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+
+          <ul>
+
+          <li><a href="/about" onclick="app.navigateTo('about'); return false;">About Us</a></li>
+
+          <li><a href="/contact" onclick="app.navigateTo('contact'); return false;">Contact</a></li>
+
+          <li><a href="/privacy" onclick="app.navigateTo('legal'); return false;">Privacy Policy</a></li>
+
+          <li><a href="#" onclick="app.navigateTo('legal'); return false;">Terms & Conditions</a></li>
+
+          <li><a href="#" onclick="app.navigateTo('legal'); return false;">Disclaimer</a></li>
+
+          </ul>
+        </div>
+
+        <div class="footer-newsletter-col">
+          <h4>Stay Inspired</h4>
+          <p>Subscribe to receive timeless outfit inspiration, seasonal styling tips, and exclusive fashion updates.</p>
+          <form onsubmit="app.handleNewsletterSubmit(event)" class="footer-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="btn-primary-sm">Subscribe Free</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> The Trend Studio. All rights reserved.</p>
+        <p class="footer-credit">Timeless Fashion • Effortless Style • Everyday Confidence</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
