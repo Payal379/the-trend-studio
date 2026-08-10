@@ -2307,9 +2307,7 @@ button {
   .header-v-divider {
     display: none;
   }
-  .nav-contact-btn {
-    display: none;
-  }
+  
   .mobile-menu-btn {
     display: flex;
   }

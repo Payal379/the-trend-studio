@@ -117,11 +117,7 @@
           <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
-        <!-- Contact Button -->
-        <a href="/contact" class="btn-outline-pill nav-contact-btn"
-          onclick="app.navigateTo('contact'); return false;">
-          CONTACT
-        </a>
+       
         <!-- Mobile Menu Toggle -->
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
           <span></span>
@@ -142,17 +138,13 @@
         <button class="close-drawer-btn" id="closeMobileNavBtn" aria-label="Close menu">&times;</button>
       </div>
       <ul class="mobile-nav-links">
-        <a href="/" onclick="app.navigateTo('home'); return false;"> Home </a>
+        <a href="/" onclick="app.closeMobileMenu(); app.navigateTo('home'); return false;">Home</a>
 
-        <a href="/journal" onclick="app.navigateTo('stories'); return false;"> Journal </a>
+        <a href="/journal" onclick="app.closeMobileMenu(); app.navigateTo('stories'); return false;">Journal</a>
 
-        <a href="/about" onclick="app.navigateTo('about'); return false;"> About </a>
+        <a href="/about" onclick="app.closeMobileMenu(); app.navigateTo('about'); return false;">About</a>
 
-        <a href="/contact" onclick="app.navigateTo('contact'); return false;"> Contact </a>
-        <!-- <li><a href="#" onclick="app.filterByCategory('Outfits'); app.closeMobileMenu(); return false;">Outfits</a></li>
-        <li><a href="#" onclick="app.filterByCategory('Accessories'); app.closeMobileMenu(); return false;">Accessories</a></li>
-        <li><a href="#" onclick="app.filterByCategory('Seasonal'); app.closeMobileMenu(); return false;">Seasonal</a></li>
-  -->
+        <a href="/contact" onclick="app.closeMobileMenu(); app.navigateTo('contact'); return false;">Contact</a>
       </ul>
       <div class="mobile-nav-footer">
         <p>Subscribe to our weekly editorial digest.</p>
