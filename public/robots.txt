@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thetrendstudio.com/sitemap.xml
+Sitemap: https://thetrendstudiohub.netlify.app/sitemap.xml
