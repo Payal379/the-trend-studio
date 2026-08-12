@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="The Trend Studio — Journal for the Considered Wardrobe">
   <meta property="og:description" content="A luxury editorial journal and design publication covering architecture, capsule wardrobe, high fashion, timeless craft, and considered living.">
-  <meta property="og:image" content="https://thetrendstudio.com/images/homepage-og.jpg">
+  <meta property="og:image" content="https://thetrendstudiohub.netlify.app/images/homepage-og.jpg">
   <meta property="og:url" content="https://thetrendstudiohub.netlify.app/">
   <meta property="og:site_name" content="The Trend Studio">
 
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Trend Studio">
   <meta name="twitter:description" content="A journal for the considered wardrobe and timeless design.">
-  <meta name="twitter:image" content="https://thetrendstudio.com/images/homepage-og.jpg">
+  <meta name="twitter:image" content="https://thetrendstudiohub.netlify.app/images/homepage-og.jpg">
   <meta name="twitter:site" content="@trendstudiohub">
 
   <script type="application/ld+json">
@@ -617,15 +617,22 @@
           <div class="contact-form-box">
             <h3>Let's Connect</h3>
             <p class="contact-form-intro">We typically respond within 1–2 business days.</p>
-            <form id="contactForm" onsubmit="app.handleContactSubmit(event)">
+            <form
+              id="contactForm"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              onsubmit="app.handleContactSubmit(event)"
+            >
+            <input type="hidden" name="form-name" value="contact">
               <div class="form-group">
                 <label for="contactName">Full Name</label>
-                <input type="text" id="contactName" required placeholder="Name">
+                <input type="text" id="contactName" name="name" required placeholder="Name">
               </div>
             
               <div class="form-group">
                 <label for="contactSubject">Subject</label>
-                <select id="contactSubject">
+                <select id="contactSubject" name="subject">
                   <option value="General">General Question</option>
                   <option value="Styling">Styling Advice</option>
                   <option value="Collaboration">Brand Collaboration</option>
@@ -634,7 +641,7 @@
               </div>
               <div class="form-group">
                 <label for="contactMessage">Message</label>
-                <textarea id="contactMessage" rows="5" required placeholder="Tell us how we can help..."></textarea>
+                <textarea id="contactMessage" name="message" rows="5" required placeholder="Tell us how we can help..."></textarea>
               </div>
               <button type="submit" class="btn-primary w-full">Send Message </button>
             </form>

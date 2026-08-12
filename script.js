@@ -661,11 +661,11 @@ class TrendStudioApp {
     document.getElementById("articleAuthorAvatar").src = article.author.avatar;
     document.getElementById("articleAuthorName").textContent = article.author.name;
     document.getElementById("articleAuthorRole").textContent = article.author.role;
-    console.log("Avatar:", article.author.avatar);
+    // console.log("Avatar:", article.author.avatar);
 
     document.getElementById("articleCoverImage").src = article.image;
     document.getElementById("articleCoverImage").alt = article.title;
-    console.log("Cover:", article.image); 
+    // console.log("Cover:", article.image); 
 
     document.getElementById("articleBody").innerHTML = article.content;
 
@@ -905,14 +905,12 @@ class TrendStudioApp {
   }
 
   handleContactSubmit(e) {
-    e.preventDefault();
     const form = document.getElementById("contactForm");
-    const success = document.getElementById("contactSuccessMessage");
 
-    if (form) form.reset();
-    if (success) success.classList.remove("hidden");
+    if (!form) return;
 
-    this.showToast("Message sent to editorial team");
+    // Let Netlify receive the form submission normally.
+    // Do not call e.preventDefault().
   }
 
   toggleFaq(btn) {
