@@ -892,16 +892,37 @@ class TrendStudioApp {
   }
 
   // 11. FORM HANDLERS
-  handleNewsletterSubmit(e) {
+ handleNewsletterSubmit(e) {
     e.preventDefault();
-    const emailInput = document.getElementById("newsletterEmail");
-    const form = document.getElementById("newsletterForm");
-    const successCard = document.getElementById("newsletterSuccess");
 
-    if (form) form.classList.add("hidden");
-    if (successCard) successCard.classList.remove("hidden");
+    const form = e.currentTarget;
 
-    this.showToast("Subscribed to Sunday Dispatch");
+    if (!form) return;
+
+    const formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        form.reset();
+
+        const successCard = document.getElementById("newsletterSuccess");
+
+        if (successCard) {
+          successCard.classList.remove("hidden");
+        }
+
+        this.showToast("Subscribed to Sunday Dispatch");
+      })
+      .catch((error) => {
+        console.error("Newsletter submission failed:", error);
+        this.showToast("Something went wrong. Please try again.");
+      });
   }
 
   handleContactSubmit(e) {
@@ -921,14 +942,18 @@ class TrendStudioApp {
       },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => {
+     .then(() => {
         form.reset();
 
-        if (success) {
-          success.classList.remove("hidden");
+        if (form.id === "newsletterForm") {
+          const successCard = document.getElementById("newsletterSuccess");
+
+          if (successCard) {
+            successCard.classList.remove("hidden");
+          }
         }
 
-        this.showToast("Message sent to editorial team");
+        this.showToast("Subscribed to Sunday Dispatch");
       })
       .catch((error) => {
         console.error("Contact form submission failed:", error);

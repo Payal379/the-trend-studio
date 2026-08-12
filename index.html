@@ -357,9 +357,24 @@
               <p class="newsletter-desc">
               Join our community and receive timeless outfit inspiration, seasonal fashion trends, capsule wardrobe guides, styling tips, and exclusive fashion ideas—all delivered straight to your inbox.
               </p>              
-              <form id="newsletterForm" class="newsletter-form" onsubmit="app.handleNewsletterSubmit(event)">
+              <form
+                id="newsletterForm"
+                name="newsletter"
+                method="POST"
+                data-netlify="true"
+                class="newsletter-form"
+                onsubmit="app.handleNewsletterSubmit(event)"
+              >
+  <input type="hidden" name="form-name" value="newsletter">
                 <div class="input-group">
-                  <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email address">
+                <input
+                  type="email"
+                  id="newsletterEmail"
+                  name="email"
+                  placeholder="Enter your email address"
+                  required
+                  aria-label="Email address"
+                >
                   <button type="submit" class="btn-primary">Subscribe Free</button>
                 </div>
                 <p class="newsletter-disclaimer">No spam, ever. Unsubscribe anytime with a single click.</p>
@@ -816,8 +831,24 @@
         <div class="footer-newsletter-col">
           <h4>Stay Inspired</h4>
           <p>Subscribe to receive timeless outfit inspiration, seasonal styling tips, and exclusive fashion updates.</p>
-          <form onsubmit="app.handleNewsletterSubmit(event)" class="footer-form">
-            <input type="email" placeholder="Your email address" required>
+          <form
+            id="footerNewsletterForm"
+            name="newsletter"
+            method="POST"
+            data-netlify="true"
+            class="footer-form"
+            onsubmit="app.handleNewsletterSubmit(event)"
+          >
+            <input type="hidden" name="form-name" value="newsletter">
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email address"
+              required
+              aria-label="Email address"
+            >
+
             <button type="submit" class="btn-primary-sm">Subscribe Free</button>
           </form>
         </div>
