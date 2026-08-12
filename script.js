@@ -905,12 +905,35 @@ class TrendStudioApp {
   }
 
   handleContactSubmit(e) {
+    e.preventDefault();
+
     const form = document.getElementById("contactForm");
+    const success = document.getElementById("contactSuccessMessage");
 
     if (!form) return;
 
-    // Let Netlify receive the form submission normally.
-    // Do not call e.preventDefault().
+    const formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        form.reset();
+
+        if (success) {
+          success.classList.remove("hidden");
+        }
+
+        this.showToast("Message sent to editorial team");
+      })
+      .catch((error) => {
+        console.error("Contact form submission failed:", error);
+        this.showToast("Something went wrong. Please try again.");
+      });
   }
 
   toggleFaq(btn) {
