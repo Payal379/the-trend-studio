@@ -713,23 +713,66 @@ class TrendStudioApp {
     }
   }
 
-  handleCommentSubmit(e) {
+  async handleCommentSubmit(e) {
     e.preventDefault();
-    const name = document.getElementById("commentName").value;
-    const text = document.getElementById("commentText").value;
 
-    const article = ARTICLES_DATA.find(a => a.id === this.currentArticleId);
-    if (article) {
-      if (!article.comments) article.comments = [];
-      article.comments.push({
-        name,
-        date: "Just now",
-        text
+    const form = document.getElementById("commentForm");
+
+    if (!form) return;
+
+    const article = ARTICLES_DATA.find(
+      a => a.id === this.currentArticleId
+    );
+
+    if (!article) {
+      this.showToast("Unable to identify this article.");
+      return;
+    }
+
+    // Add current article information to the Netlify submission
+    const articleField = document.getElementById("commentArticle");
+    const articleUrlField = document.getElementById("commentArticleUrl");
+    const articleTitleField = document.getElementById("commentArticleTitle");
+
+    if (articleField) {
+      articleField.value = article.id;
+    }
+
+    if (articleUrlField) {
+      articleUrlField.value = window.location.href;
+    }
+
+    if (articleTitleField) {
+      articleTitleField.value = article.title;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams(formData).toString()
       });
 
-      this.renderComments(article);
-      document.getElementById("commentForm").reset();
-      this.showToast("Your response has been published.");
+      if (!response.ok) {
+        throw new Error("Netlify form submission failed.");
+      }
+
+      form.reset();
+
+      this.showToast(
+        "Thank you. Your response has been sent for review."
+      );
+
+    } catch (error) {
+      console.error("Comment submission error:", error);
+
+      this.showToast(
+        "Sorry, we couldn't send your response. Please try again."
+      );
     }
   }
 
@@ -835,7 +878,22 @@ class TrendStudioApp {
 
   closeSearchModal() {
     const modal = document.getElementById("searchModal");
-    if (modal) modal.classList.remove("active");
+    const searchInput = document.getElementById("modalSearchInput");
+    const searchButton = document.getElementById("openSearchBtn");
+
+    // Remove focus before hiding the modal
+    if (searchInput) {
+      searchInput.blur();
+    }
+
+    if (modal) {
+      modal.classList.remove("active");
+    }
+
+    // Return keyboard focus to the button that opened the search
+    if (searchButton) {
+      searchButton.focus();
+    }
   }
 
   handleModalSearch(query) {
@@ -1026,15 +1084,52 @@ class TrendStudioApp {
   }
 
   shareArticle() {
+    const articleUrl = window.location.href;
+
+    // Use native sharing when available
     if (navigator.share) {
       navigator.share({
         title: document.title,
-        url: window.location.href
+        url: articleUrl
       }).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      this.showToast("Link copied to clipboard");
+      return;
     }
+
+    // Use Clipboard API when available
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(articleUrl)
+        .then(() => {
+          this.showToast("Link copied to clipboard");
+        })
+        .catch(() => {
+          this.copyLinkFallback(articleUrl);
+        });
+      return;
+    }
+
+    // Fallback for browsers/environments without Clipboard API
+    this.copyLinkFallback(articleUrl);
+  }
+
+  copyLinkFallback(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+    textArea.style.pointerEvents = "none";
+
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+      document.execCommand("copy");
+      this.showToast("Link copied to clipboard");
+    } catch (error) {
+      this.showToast("Unable to copy link");
+    }
+
+    document.body.removeChild(textArea);
   }
 
   // 13. BIND EVENTS
