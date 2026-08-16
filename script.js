@@ -369,6 +369,88 @@ class TrendStudioApp {
     this.navigateTo("home", null, false);
   }
 
+    // 3A. ARTICLE SEO
+  updateArticleSEO(article) {
+    if (!article) return;
+
+    const siteUrl = "https://thetrendstudiohub.netlify.app";
+    const articleUrl = `${siteUrl}/journal/${article.slug}`;
+
+    // Page title
+    document.title = `${article.title} | The Trend Studio`;
+
+    // Meta description
+    const metaDescription = document.getElementById("metaDescription");
+    if (metaDescription) {
+      metaDescription.setAttribute("content", article.summary);
+    }
+
+    // Canonical URL
+    const canonicalUrl = document.getElementById("canonicalUrl");
+    if (canonicalUrl) {
+      canonicalUrl.setAttribute("href", articleUrl);
+    }
+
+    // Open Graph
+    const ogType = document.getElementById("ogType");
+    const ogTitle = document.getElementById("ogTitle");
+    const ogDescription = document.getElementById("ogDescription");
+    const ogImage = document.getElementById("ogImage");
+    const ogUrl = document.getElementById("ogUrl");
+
+    if (ogType) ogType.setAttribute("content", "article");
+    if (ogTitle) ogTitle.setAttribute("content", article.title);
+    if (ogDescription) ogDescription.setAttribute("content", article.summary);
+    if (ogImage) ogImage.setAttribute("content", article.image);
+    if (ogUrl) ogUrl.setAttribute("content", articleUrl);
+
+    // Twitter Card
+    const twitterTitle = document.getElementById("twitterTitle");
+    const twitterDescription = document.getElementById("twitterDescription");
+    const twitterImage = document.getElementById("twitterImage");
+
+    if (twitterTitle) twitterTitle.setAttribute("content", article.title);
+    if (twitterDescription) {
+      twitterDescription.setAttribute("content", article.summary);
+    }
+    if (twitterImage) twitterImage.setAttribute("content", article.image);
+
+    // Article structured data
+    const schemaElement = document.getElementById("dynamicArticleSchema");
+
+    if (schemaElement) {
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": article.title,
+        "description": article.summary,
+        "image": [article.image],
+        "datePublished": "2026-07-30",
+        "author": {
+          "@type": "Organization",
+          "name": article.author.name,
+          "url": siteUrl
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "The Trend Studio",
+          "url": siteUrl
+        },
+        "articleSection": article.category,
+        "keywords": article.tags.join(", "),
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": articleUrl
+        },
+        "url": articleUrl,
+        "inLanguage": "en"
+      };
+
+      schemaElement.textContent = JSON.stringify(schema);
+    }
+  }
+
+
   // 3. THEME SYSTEM
   applyTheme(theme) {
     this.theme = theme;
@@ -389,6 +471,12 @@ class TrendStudioApp {
 
     if (updateHistory) {
       this.router.push(pageId, articleId);
+    }
+
+    // Update SEO metadata for article pages
+    if (pageId === "article") {
+      const article = ARTICLES_DATA.find(a => a.id === articleId);
+      this.updateArticleSEO(article);
     }
 
     // Hide all pages
