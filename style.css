@@ -1574,6 +1574,41 @@ button {
   margin: 48px 0 20px 0;
 }
 
+.article-body-content h3 {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--accent-gold-hover);
+  margin: 32px 0 12px 0;
+}
+
+.article-body-content ul {
+  margin: 0 0 28px 0;
+  padding-left: 22px;
+}
+
+.article-body-content li {
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.article-body-content strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.article-body-content a {
+  color: var(--accent-gold-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-gold-light);
+  text-underline-offset: 3px;
+}
+
+.article-body-content a:hover {
+  color: var(--accent-gold);
+}
+
 .article-body-content blockquote {
   font-family: var(--font-serif);
   font-size: 28px;
