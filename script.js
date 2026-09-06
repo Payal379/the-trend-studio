@@ -463,121 +463,33 @@ const ARTICLES_DATA = [
     ],
     featured: false,
     content: `
-      <p>The old money aesthetic is less about wearing expensive labels and more about creating a wardrobe that looks polished, composed, and intentional. Clean silhouettes, restrained colors, quality-looking fabrics, and excellent fit do most of the work.</p>
-
-      <p>You do not need a large budget to build this kind of wardrobe. Start with versatile pieces that work across several occasions, then improve the overall effect through tailoring, careful styling, and thoughtful accessories.</p>
-
-      <h2>What Defines an Old Money Wardrobe?</h2>
-
-      <p>A convincing old money wardrobe usually follows a few simple principles: neutral colors, classic proportions, minimal branding, and pieces that can be worn repeatedly. The goal is not to recreate someone else's lifestyle but to develop a refined personal uniform that feels comfortable and authentic.</p>
-
-      <ul>
-      <li><strong>Neutral colors.</strong> Begin with cream, white, navy, camel, beige, gray, chocolate brown, and black.</li>
-      <li><strong>Classic silhouettes.</strong> Straight-leg trousers, tailored blazers, button-down shirts, knitwear, midi skirts, and simple dresses remain useful across seasons.</li>
-      <li><strong>Minimal branding.</strong> Small or invisible logos usually create a more timeless appearance than prominent designer marks.</li>
-      <li><strong>Good fit.</strong> Even an affordable garment looks more expensive when the shoulders, sleeves, waist, and trouser length fit correctly.</li>
-      <li><strong>Quality-looking texture.</strong> Natural-looking fabrics, structured materials, and subtle texture make a simple outfit feel considered.</li>
-      </ul>
-
-      <h2>Build the Foundation First</h2>
-
-      <p>Do not try to create the entire wardrobe in one shopping trip. Begin with a small group of reliable pieces that can be combined in several ways. This approach is similar to building a capsule wardrobe: every new purchase should work with at least three items you already own.</p>
-
-      <h3>White Button-Down Shirt</h3>
-
-      <p>A crisp white shirt is one of the most useful pieces in an elegant wardrobe. Wear it with tailored trousers for work, dark denim for weekends, or under a sweater when the weather becomes cooler. Choose a fabric that is not completely transparent and a cut that allows comfortable movement.</p>
-
-      <h3>Tailored Blazer</h3>
-
-      <p>A blazer immediately gives structure to casual clothing. Navy, camel, beige, gray, and black are the easiest colors to style. Look for clean shoulder lines, functional pockets, and a length that works with both trousers and jeans.</p>
-
-      <h3>Well-Fitting Trousers</h3>
-
-      <p>One pair of tailored trousers can make several inexpensive tops look more polished. Straight-leg and wide-leg styles are especially versatile, while high-waisted designs can create a balanced silhouette when worn with tucked-in shirts or fitted knitwear.</p>
-
-      <h3>Dark-Wash Jeans</h3>
-
-      <p>Dark denim looks more refined than heavily distressed or faded jeans. Choose a straight-leg or slim-straight cut without excessive decoration. Pair it with a white shirt, blazer, loafers, or a fine-gauge sweater for a relaxed but polished outfit.</p>
-
-      <h3>Neutral Knitwear</h3>
-
-      <p>A cream, navy, camel, gray, or chocolate-brown sweater adds softness without making an outfit look casual. Fine knits work well under blazers and coats, while a heavier cable-knit style adds seasonal texture with jeans or a midi skirt.</p>
-
-      <h3>Simple Midi Dress or Skirt</h3>
-
-      <p>A midi dress or skirt creates an elegant silhouette without requiring complicated styling. Choose a simple shape in a neutral color, then change the appearance with a belt, cardigan, blazer, scarf, or different pair of shoes.</p>
-
-      <h2>Affordable Shopping Strategies</h2>
-
-      <p>The most effective way to build this wardrobe on a budget is to spend selectively. Not every piece needs to be expensive, but the items you wear most often should be chosen for durability, fit, and versatility.</p>
-
-      <ul>
-      <li><strong>Spend more selectively.</strong> Prioritize coats, blazers, trousers, shoes, and everyday handbags because these pieces influence the entire outfit.</li>
-      <li><strong>Save on trend-sensitive items.</strong> Tops, scarves, seasonal colors, and costume jewelry can be affordable additions that refresh the wardrobe.</li>
-      <li><strong>Check fabric composition.</strong> Cotton, linen, wool blends, viscose, and well-made synthetics can all work when the garment holds its shape and feels comfortable.</li>
-      <li><strong>Shop secondhand.</strong> Thrift stores, resale platforms, and vintage shops can be useful for finding blazers, coats, silk scarves, leather bags, and knitwear at lower prices.</li>
-      <li><strong>Alter before replacing.</strong> Shortening trousers, adjusting sleeves, or taking in a waist can make an inexpensive garment look significantly better.</li>
-      </ul>
-
-      <blockquote>Quiet luxury is created through consistency: a restrained palette, thoughtful proportions, and pieces that look cared for will always matter more than a visible logo.</blockquote>
-
-      <h2>Old Money Outfit Formulas</h2>
-
-      <p>Use these combinations as starting points rather than strict rules. The best wardrobe is one that reflects your lifestyle, climate, comfort, and personal taste.</p>
-
-      <ul>
-      <li><strong>White shirt, dark jeans, and loafers.</strong> Add a leather belt and structured handbag for a simple everyday outfit.</li>
-      <li><strong>Tailored blazer, fitted top, and straight-leg trousers.</strong> Choose tonal colors for a refined work or dinner look.</li>
-      <li><strong>Cream knit sweater, midi skirt, and ballet flats.</strong> Finish with delicate jewelry and a small shoulder bag.</li>
-      <li><strong>Navy blazer, white T-shirt, and beige trousers.</strong> This combination is relaxed enough for weekends but still looks intentional.</li>
-      <li><strong>Simple midi dress, cardigan, and leather belt.</strong> Use the belt to define the waist and change the silhouette.</li>
-      <li><strong>Trench coat, button-down shirt, jeans, and ankle boots.</strong> This is especially useful during transitional weather.</li>
-      <li><strong>Monochrome neutral outfit.</strong> Combine cream, beige, camel, or gray in different textures to create depth.</li>
-      </ul>
-
-      <h2>Accessories That Complete the Look</h2>
-
-      <p>Accessories should support the outfit rather than dominate it. A few carefully chosen pieces can make affordable clothing appear more cohesive and finished.</p>
-
-      <h3>Structured Handbag</h3>
-
-      <p>A structured tote, top-handle bag, or minimalist crossbody in black, tan, cream, or brown will work with most outfits. Check the bag's shape, stitching, hardware, and interior organization before buying. Our <a href="/journal/timeless-handbags-for-women">timeless handbag guide</a> explains which styles are most useful for a complete collection.</p>
-
-      <h3>Leather-Look Shoes</h3>
-
-      <p>Loafers, ballet flats, simple pumps, ankle boots, and clean white sneakers all work well with a refined wardrobe. Choose simple shapes without excessive hardware or decoration. One well-maintained pair will usually be more useful than several inexpensive pairs that are rarely worn.</p>
-
-      <h3>Minimal Jewelry</h3>
-
-      <p>Small hoops, pearl or metal studs, a thin chain necklace, and delicate stacking rings add polish without overwhelming the outfit. Start with one necklace, one pair of earrings, and a few rings before adding more pieces. See our guide to <a href="/journal/minimal-jewelry-for-every-outfit">minimal jewelry for every outfit</a> for material and care advice.</p>
-
-      <h3>Silk or Satin Scarf</h3>
-
-      <p>A scarf adds color and personality while keeping the rest of the outfit simple. Tie it around the neck, attach it to a handbag, or wear it in your hair. Burgundy, navy, forest green, cream, and muted prints are easy to combine with neutral clothing.</p>
-
-      <h2>Common Mistakes to Avoid</h2>
-
-      <ul>
-      <li><strong>Buying logos instead of quality.</strong> A visible brand name cannot compensate for poor fit or weak construction.</li>
-      <li><strong>Choosing only beige.</strong> A wardrobe made entirely of one neutral can appear flat, so add navy, gray, black, white, and one or two muted accent colors.</li>
-      <li><strong>Ignoring maintenance.</strong> Clean shoes, pressed clothing, polished hardware, and lint-free knitwear make a major difference.</li>
-      <li><strong>Buying too many pieces at once.</strong> A rushed wardrobe often contains items that look attractive individually but do not work together.</li>
-      <li><strong>Following the aesthetic too literally.</strong> Classic style should still feel practical and personal rather than like a costume.</li>
-      <li><strong>Forgetting comfort.</strong> Clothing that restricts movement or requires constant adjustment will not become a genuine wardrobe staple.</li>
-      </ul>
-
-      <h2>How to Start on a Small Budget</h2>
-
-      <p>If you are starting from scratch, begin with a white shirt, dark jeans, tailored trousers, a neutral sweater, a blazer, loafers or clean white sneakers, and one structured handbag. These pieces can create a surprisingly large number of combinations and provide a foundation for future purchases.</p>
-
-      <p>Before buying anything else, try creating at least five outfits from what you already own. Identify the missing item that would connect the most existing pieces, then purchase that item first. This prevents overbuying and makes every addition more useful.</p>
-
-      <h2>Make the Wardrobe Your Own</h2>
-
-      <p>An old money-inspired wardrobe should be a framework, not a set of rules. You can adapt the color palette, silhouettes, and footwear to your lifestyle while keeping the central ideas of versatility, fit, and restraint.</p>
-
-      <p>The most elegant wardrobe is not necessarily the most expensive one. It is the collection of clothes you care for, wear confidently, and combine easily. Build it gradually, choose quality where it matters most, and let your personal style remain visible within the classic foundation.</p>
-
+      <p>Old money style gets mistaken for an expensive style, which is a little backwards. The whole point of the look is that it never announces its price tag. Fit, fabric, and restraint do the work that a visible logo would otherwise be doing, and none of those three things actually require a large budget. This is the real strategy behind building the look without spending like the aesthetic suggests you should.</p>
+ 
+<h2>What Old Money Style Is Actually Built On</h2>
+<p>Strip away the name and the aesthetic comes down to three things: a neutral, muted color palette (camel, navy, cream, black, forest green), structured silhouettes that look tailored rather than thrown on, and an almost complete absence of visible branding. It's the opposite of fast fashion's logic, which relies on trend and recognizable branding to signal value. Here, the fabric and the fit are doing all the signaling instead.</p>
+ 
+<h2>Buy Fewer Pieces, and Make Them Count</h2>
+<p>This is the single most useful mindset shift, and it costs nothing. A ten-piece wardrobe of well-chosen neutrals mixes into more outfits than thirty pieces bought on impulse, which is the same logic behind a <a href="/journal/20-piece-capsule-wardrobe">capsule wardrobe</a>. Before buying anything for this look, ask whether it pairs with at least three things you already own. If the answer is no, it's probably a trend piece wearing an old money label, not the real thing.</p>
+ 
+<h2>Where You Can Actually Save Money</h2>
+<p>Secondhand and thrift stores are, somewhat counterintuitively, one of the best places to find this exact aesthetic. Structured pieces like blazers, wool coats, and trousers were often made with better fabric decades ago than a lot of current fast fashion, and they hold their shape on a hanger in a way that makes them easy to spot secondhand. End-of-season sales are the other reliable source, since classic silhouettes don't go out of style the way trend pieces do, so last season's camel coat still works perfectly this year at half the price.</p>
+ 
+<h2>Where Not to Cut Corners</h2>
+<p>Trousers, blazers, and anything worn close to the body are worth spending more on than the rest of the wardrobe, because cheap fabric shows in exactly those pieces first, through shine, pilling, or a shape that won't hold. A knit sweater in a wool blend will always read better than one in pure acrylic, even at a similar price point. Save the budget cuts for pieces that take less visible wear, like a basic tee or a scarf.</p>
+ 
+<h2>Tailoring Is the Actual Secret</h2>
+<p>A ten-dollar thrifted blazer, tailored to fit through the shoulders and waist, will look more expensive than a designer piece bought a size too big. Fit is doing more visual work in this aesthetic than the garment's original price ever will, and a local tailor adjusting a hem or taking in a waist is usually cheaper than a single impulse purchase. This one habit does more to separate a considered wardrobe from a thrifted-looking one than any item on this list.</p>
+ 
+<blockquote>"Old money style was never about how much something cost. It was about looking like you never had to think about it."</blockquote>
+ 
+<h2>The Core Pieces to Build Toward</h2>
+<p>A structured blazer, a wool or wool-blend coat, tailored trousers, a crewneck sweater, a white button-down shirt, and a pair of loafers form the backbone of the look. From there, the pieces already covered in our other guides slot in naturally: a <a href="/journal/timeless-handbags-for-women">structured leather bag</a> in a neutral tone, <a href="/journal/minimal-jewelry-for-every-outfit">delicate gold jewelry</a> instead of anything with a visible logo, and a clean pair of leather loafers or boots rather than anything with branding on the sole.</p>
+ 
+<h2>Mistakes That Undercut the Look</h2>
+<p>A visible logo, even a small one, works against everything this aesthetic is built on, so check labels carefully before buying secondhand. Shiny or overly synthetic fabric reads as cheap under normal light regardless of how the piece is styled, so touch the fabric before checking the price tag. And over-accessorizing undoes the restraint that makes the whole look work; one or two quiet pieces of jewelry will always look more expensive than five.</p>
+ 
+<h2>Building It Gradually</h2>
+<p>Start with one well-tailored blazer and one pair of trousers, since those two pieces alone will outfit more days than anything else on this list. Add the coat next, since it's worn over everything else and does the most visual work in colder months, then fill in the rest as budget allows. None of this needs to happen in a single shopping trip, and honestly, it shouldn't; the look is built the same patient way it was originally inherited, one considered piece at a time.</p>
     `,
     comments: []
   }
